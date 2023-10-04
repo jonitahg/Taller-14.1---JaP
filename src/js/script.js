@@ -43,14 +43,17 @@ dropdownBtn.addEventListener('click', dropdownAction);
 // Efecto subtitulo
 
 const subtitle = document.querySelector('.subtitle');
+const subtitlesArr = ['Estoy Feliz...', 'Estoy Triste...', 'Estoy casi Feliz...'];
+let index = 0;
 
-const subtitlesArr = ['Estoy Feliz', 'Estoy Triste', 'Estoy casi Feliz'];
+function cambiarTexto() {
+	subtitle.textContent = subtitlesArr[index];
+	index = (index + 1) % subtitlesArr.length;
+}
 
-const cambiarSubtitle = () => {
-	subtitle.innerText = subtitlesArr[Math.floor(Math.random() * subtitlesArr.length)];
-};
+cambiarTexto(); // Cambia el texto inicialmente
 
-setInterval(cambiarSubtitle, 2000);
+setInterval(cambiarTexto, 2000);
 
 // Dropdown navbar
 
